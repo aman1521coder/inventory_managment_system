@@ -1,19 +1,25 @@
 const mongoose = require('mongoose');
-
-// Item Schema
 const itemSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
   },
-  description: String,
+  quantity: {
+    type: Number,
+    required: true,
+    default: 0
+  },
   price: {
     type: Number,
     required: true
   },
-  quantity: {
-    type: Number,
+  category: {
+    type: String,
     required: true
+  },
+  image: {
+    type: String,
+    required: false
   },
   supplier: {
     type: mongoose.Schema.Types.ObjectId,
@@ -25,5 +31,5 @@ const itemSchema = new mongoose.Schema({
   }
 });
 
-// Export Item model
+
 module.exports = mongoose.model('Item', itemSchema);
